@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "loaders.scss"
+    ],
+    "names": [],
+    "file": "loaders.css"
+}

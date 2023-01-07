@@ -1,0 +1,126 @@
+/* Max width 767px */
+@media only screen and (max-width: 767px) {
+  .main-title {
+    margin-bottom: 20px;
+  }
+  .main-title.border-style {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+  }
+  /* Main Content Wrap Style*/
+  .main-content-wrap {
+    padding-left: 0;
+    padding-top: 108px;
+  }
+  /* Card Box Style */
+  .card-box-style {
+    padding: 15px !important;
+    border-radius: 10px;
+  }
+  .card-box-style.rounded {
+    padding: 15px;
+    border-radius: 10px !important;
+  }
+  /* Main Content Wrapper */
+  .main-content-wrap.style-two {
+    padding-left: 0;
+    overflow: hidden;
+  }
+  .others-title h3 {
+    font-size: 18px;
+  }
+  .btn {
+    padding: 8px 20px;
+  }
+  /* Go Top Style */
+  .go-top {
+    width: 30px;
+    height: 30px;
+  }
+  .go-top.active {
+    top: 96%;
+  }
+}
+
+/* Min width 576px to Max width 767px */
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .card-box-style {
+    padding: 25px !important;
+  }
+}
+
+/* Min width 768px to Max width 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* main Title */
+  .main-title {
+    margin-bottom: 30px;
+  }
+  /* main Content */
+  .main-content-wrap {
+    padding-top: 127px;
+  }
+  .main-content-wrap.style-two {
+    padding-left: 0 !important;
+    overflow: hidden;
+  }
+  .card-box-style.rounded {
+    padding: 20px;
+  }
+  .btn {
+    padding: 8px 20px;
+  }
+}
+
+/* Min width 992px to Max width 1199px */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* Main Title Style */
+  .main-title {
+    margin-bottom: 30px;
+  }
+  .card-box-style {
+    padding: 20px !important;
+  }
+  .card-box-style.rounded-30 {
+    padding: 20px !important;
+  }
+  /* Main Content Style */
+  .main-content-wrap {
+    padding-top: 127px;
+    padding-left: 0;
+    overflow: hidden;
+  }
+  .main-content-wrap.style-two {
+    padding-left: 0;
+    overflow: hidden;
+  }
+}
+
+/* Min width 1200px to Max width 1320px */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  /* Main Content Style */
+  .main-content-wrap {
+    overflow: hidden;
+  }
+  .main-content-wrap.style-two {
+    padding-left: 255px;
+  }
+  /* Card Box Style */
+  .card-box-style.rounded-30 {
+    padding: 20px !important;
+  }
+  /* Main Content Style */
+  .main-content-wrap {
+    overflow: hidden;
+  }
+  .main-content-wrap.style-two {
+    padding-left: 255px;
+  }
+}
+
+/* Min width 1119px*/
+@media only screen and (max-width: 1199px) {
+  .main-content-wrap {
+    padding-left: 0;
+  }
+}
+/*# sourceMappingURL=responsive.css.map */
