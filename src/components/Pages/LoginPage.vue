@@ -12,6 +12,9 @@
                         </div>
 
                         <form @submit.prevent="handleSubmit" class="account-wrap">
+                            <div v-if="errorMessage" class="error-message">
+                                {{ errorMessage }}
+                            </div>
                             <div class="form-group mb-24 icon">
                                 <input type="email" v-model="email" class="form-control" placeholder="Email">
                                 <img src="../../assets/images/icon/sms.svg" alt="sms">
@@ -65,21 +68,28 @@ export default {
         return {
             email: '',
             password: '',
+            errorMessage: ''
         }
     },
     methods: {
         async handleSubmit() {
-            const response = await axios.post('api/auth/login', {
-                email: this.email,
-                password: this.password,
-            });
-            // Set the access_token and refresh_token cookies
-            Cookies.set('access_token', response.data.access_token);
-            Cookies.set('refresh_token', response.data.refresh_token);
+            try {
+                const response = await axios.post('api/auth/login', {
+                    email: this.email,
+                    password: this.password,
+                });
+                // Set the access_token and refresh_token cookies
+                Cookies.set('access_token', response.data.access_token);
+                Cookies.set('refresh_token', response.data.refresh_token);
 
-            if (response.data.access_token) {
-                Cookies.set('logged_in', true);
-                this.$router.push('/profile');
+                if (response.data.access_token) {
+                    Cookies.set('logged_in', true);
+                    this.$router.push('/profile');
+                }
+            } catch (error) {
+                if (error.response) {
+                    this.errorMessage = error.response.data.detail;
+                }
             }
         }
     },
@@ -96,6 +106,15 @@ export default {
     background-repeat: no-repeat;
     background-size: auto;
     height: 100vh;
+}
+
+.error-message {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: red;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
 }
 
 .account-content {

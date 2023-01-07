@@ -12,6 +12,9 @@
                         </div>
 
                         <form @submit.prevent="handleSubmit" class="account-wrap">
+                            <div v-if="errorMessage" class="error-message">
+                                {{ errorMessage }}
+                            </div>
                             <div class="form-group mb-24 icon">
                                 <input type="text" class="form-control" v-model="username" placeholder="Username">
                                 <img src="../../assets/images/icon/user-square.svg" alt="user-square">
@@ -89,22 +92,32 @@ export default {
             email: '',
             photo: '',
             password: '',
-            passwordConfirm: ''
+            passwordConfirm: '',
+            errorMessage: ''
         }
     },
     methods: {
         async handleSubmit() {
-            const response = await axios.post('api/auth/register', {
-                username: this.username,
-                full_name: this.full_name,
-                email: this.email,
-                photo: this.photo,
-                password: this.password,
-                passwordConfirm: this.passwordConfirm
-            });
-            console.log(response);
+            try {
+                const response = await axios.post('api/auth/register', {
+                    username: this.username,
+                    full_name: this.full_name,
+                    email: this.email,
+                    photo: this.photo,
+                    password: this.password,
+                    passwordConfirm: this.passwordConfirm
+                }
+                );
+                this.$router.push('/verification');
+                console.log(response);
+            } catch (error) {
+                if (error.response) {
+                    this.errorMessage = error.response.data.detail;
+                }
+            }
         }
-    }
+    },
+
 }
 </script>
 
@@ -115,6 +128,14 @@ export default {
     background-repeat: no-repeat;
     background-size: auto;
     height: 100vh;
+}
+
+.error-message {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: red;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 .account-content {
