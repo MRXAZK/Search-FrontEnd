@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "class": "up-and-down-content",
+        "title": "Monthly",
+        "number": "7.32",
+        "symbol": "+",
+        "percent": "32"
+    },
+    {
+        "id": 2,
+        "class": "up-and-down-content color-style-fe5957",
+        "title": "Weekly",
+        "number": "7.32",
+        "symbol": "-",
+        "percent": "01.17"
+    },
+    {
+        "id": 3,
+        "class": "up-and-down-content",
+        "title": "Today",
+        "number": "7.32",
+        "symbol": "+",
+        "percent": "03.93"
+    }
+]

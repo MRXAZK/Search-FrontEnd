@@ -310,9 +310,9 @@
 								<a class="dropdown-item dropdown-toggle avatar d-flex align-items-center" href="#"
 									id="navbarDropdown-4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 									<img src="../../assets/images/avatar.png" alt="avatar">
-									<div class="d-none d-lg-block d-md-block">
-										<h3>John Smilga</h3>
-										<span>Super Admin</span>
+									<div class="d-none d-lg-block d-md-block" v-if="profile">
+										<h3>{{ profile.full_name }}</h3>
+										<span>@{{ profile.username }}</span>
 									</div>
 								</a>
 
@@ -324,9 +324,9 @@
 										</div>
 
 										<div class="info text-center">
-											<span class="name">John Smilga</span>
+											<span class="name">{{ profile.full_name }}</span>
 											<p class="mb-3 email">
-												<a href="mailto:johnsmilga@hello.com">johnsmilga@hello.com</a>
+												<a href="mailto:johnsmilga@hello.com">@{{ profile.username }}</a>
 											</p>
 										</div>
 									</div>
@@ -387,26 +387,37 @@
 				</div>
 			</div>
 		</div>
-		<SidebarMenu :class="{ active_sidemenu_area: sidemenu }" />
+
+		<SidebarMenu class="style-two" :class="{ active_sidemenu_area: sidemenu }" />
 	</div>
 </template>
 
 <script>
+import axios from 'axios'
 import SidebarMenu from './SidebarMenu'
+import Cookies from 'js-cookie'
 
 export default {
 	name: 'MainHeader',
 	components: {
 		SidebarMenu,
 	},
-	data() {
-		return {
-			isSticky: false,
-			active: false,
-			button_active_state: false,
-			sidemenu: false,
-			button_sidemenu_state: false,
-		};
+	data: () => ({
+		profile: [],
+		isSticky: false,
+		active: false,
+		button_active_state: false,
+		sidemenu: false,
+		button_sidemenu_state: false
+	}),
+	async created() {
+		const response = await axios.get('api/users/me', {
+			headers: {
+				'Authorization': 'Bearer ' + Cookies.get('access_token')
+			}
+		});
+		console.log(response.data);
+		this.profile = response.data;
 	},
 	mounted() {
 		const that = this;
@@ -490,8 +501,10 @@ Header Content Content Style
 			}
 		}
 	}
+}
 
-	&.header-style-two {
+.header-style-two {
+	.header-area {
 		background-color: #F8FAFF;
 
 		.header-content-wrapper {
@@ -501,10 +514,11 @@ Header Content Content Style
 				}
 			}
 		}
-
 	}
+}
 
-	&.header-style-three {
+.header-style-three {
+	.header-area {
 		.header-content-wrapper {
 			background: transparent linear-gradient(93deg, #1765FD 0%, #4FCB8D 100%) 0% 0% no-repeat padding-box;
 			box-shadow: 0px 2px 15px #00000005;
@@ -1752,7 +1766,7 @@ Header Content Content Style
 		}
 	}
 
-	.responsive-burger-menu.d-lg-none {
+	.responsive-burger-menu {
 		display: block !important;
 	}
 
@@ -1764,24 +1778,22 @@ Header Content Content Style
 		background-color: transparent;
 	}
 
-	.header-style-two {
-		.header-area {
+	.header-area {
+		&.header-style-two {
 			.header-content-wrapper {
 				.header-left-content {
 					.main-logo {
-						margin-right: 50px !important;
+						margin-right: 50px;
 					}
 				}
 			}
 		}
-	}
 
-	.header-style-three {
-		.header-area {
+		&.header-style-three {
 			.header-content-wrapper {
 				.header-left-content {
 					.main-logo {
-						margin-right: 50px !important;
+						margin-right: 50px;
 					}
 				}
 			}
@@ -1791,7 +1803,7 @@ Header Content Content Style
 
 /* Min width 1400px to Max width 1700px */
 @media only screen and (min-width: 1400px) and (max-width: 1700px) {
-	.header-area.header-style-two {
+	.header-style-two .header-area {
 		background-color: transparent;
 	}
 
@@ -1799,8 +1811,17 @@ Header Content Content Style
 
 /* Max width 1199px */
 @media only screen and (max-width:1199px) {
+
 	.header-area {
-		&.header-style-three {
+		&.is-sticky {
+			&::before {
+				height: 30px;
+			}
+		}
+	}
+
+	.header-style-three {
+		.header-area {
 			.responsive-burger-menu {
 				span {
 					background-color: var(--white-color);
@@ -1834,21 +1855,7 @@ Header Content Content Style
 					background-color: var(--white-color);
 				}
 			}
-		}
 
-		&.header-style-two {
-			background-color: transparent;
-		}
-
-		&.is-sticky {
-			&::before {
-				height: 30px;
-			}
-		}
-	}
-
-	.header-area {
-		&.header-style-two {
 			.header-content-wrapper {
 				.header-left-content {
 					.main-logo {
@@ -1857,8 +1864,12 @@ Header Content Content Style
 				}
 			}
 		}
+	}
 
-		&.header-style-three {
+	.header-style-two {
+		.header-area {
+			background-color: transparent;
+
 			.header-content-wrapper {
 				.header-left-content {
 					.main-logo {

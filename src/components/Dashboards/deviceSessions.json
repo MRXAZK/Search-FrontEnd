@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "class": "single-device",
+        "title": "Desktop",
+        "number": "19,202",
+        "symbol": "+",
+        "percent": "32.50"
+    },
+    {
+        "id": 2,
+        "class": "single-device border-style-4fcb8d",
+        "title": "Mobile",
+        "number": "32,590",
+        "symbol": "+",
+        "percent": "2"
+    },
+    {
+        "id": 3,
+        "class": "single-device border-style-fec107",
+        "title": "Tablet",
+        "number": "1,202",
+        "symbol": "+",
+        "percent": "32.50"
+    }
+]

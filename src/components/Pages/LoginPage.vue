@@ -84,7 +84,7 @@ export default {
 
                 if (response.data.access_token) {
                     Cookies.set('logged_in', true);
-                    this.$router.push('/profile');
+                    this.$router.push('/');
                 }
             } catch (error) {
                 if (error.response) {

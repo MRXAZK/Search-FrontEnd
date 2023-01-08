@@ -4,9 +4,10 @@ import LoginPage from "../components/Pages/LoginPage";
 import RegisterPage from "../components/Pages/RegisterPage";
 import ProfilePage from "../components/Pages/ProfilePage";
 import VerificationEmailPage from "../components/Pages/VerificationEmailPage";
+import HomePage from "../components/Pages/HomePage";
 
 const routes = [
-  // { path: "/", name: "WebsiteAnalyticsPage", component: WebsiteAnalyticsPage },
+  { path: "/", name: "HomePage", component: HomePage },
   { path: "/login", name: "LoginPage", component: LoginPage },
   { path: "/register", name: "RegisterPage", component: RegisterPage },
   { path: "/profile", name: "ProfilePage", component: ProfilePage },

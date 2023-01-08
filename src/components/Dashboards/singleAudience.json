@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "title": "New Users",
+        "number": "19,202",
+        "symbol": "+",
+        "class": "audience-content",
+        "percent": "55",
+        "image": "icon/white-profile-2user.svg"
+    },
+    {
+        "id": 2,
+        "title": "Page Views",
+        "number": "21,202",
+        "symbol": "+",
+        "class": "audience-content",
+        "percent": "32",
+        "image": "icon/eye.svg"
+    },
+    {
+        "id": 3,
+        "title": "Page Sessions",
+        "number": "15,251",
+        "symbol": "+",
+        "class": "audience-content",
+        "percent": "23",
+        "image": "icon/timer.svg"
+    },
+    {
+        "id": 4,
+        "title": "Bounce Rate",
+        "number": "21,202",
+        "symbol": "-",
+        "class": "audience-content color-style-fe5957",
+        "percent": "15",
+        "image": "icon/mask.svg"
+    }
+]

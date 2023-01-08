@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "title": "Homepage",
+        "class": "progress",
+        "percent": "65.35"
+    },
+    {
+        "id": 2,
+        "title": "Our Services",
+        "class": "progress services",
+        "percent": "40.25"
+    },
+    {
+        "id": 3,
+        "title": "List of Products",
+        "class": "progress products",
+        "percent": "25.15"
+    },
+    {
+        "id": 4,
+        "title": "Blog",
+        "class": "progress blog",
+        "percent": "80.95"
+    },
+    {
+        "id": 5,
+        "title": "Contact Us",
+        "class": "progress contact",
+        "percent": "42.35"
+    }
+]

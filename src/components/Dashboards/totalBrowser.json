@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "image": "apps/chrome.svg",
+        "browserName": "Google Chrome",
+        "sessions": "13,410",
+        "bounceRate": "65.35",
+        "conversionRate": "12.32"
+    },
+    {
+        "id": 2,
+        "image": "apps/mozilla.svg",
+        "browserName": "Mozilla Firefox",
+        "sessions": "14,530",
+        "bounceRate": "40.25",
+        "conversionRate": "19.59"
+    },
+    {
+        "id": 3,
+        "image": "apps/safari.svg",
+        "browserName": "Apple Safari",
+        "sessions": "2,515",
+        "bounceRate": "25.15",
+        "conversionRate": "11.42"
+    },
+    {
+        "id": 4,
+        "image": "apps/edge.svg",
+        "browserName": "Microsoft Edge",
+        "sessions": "1095",
+        "bounceRate": "80.95",
+        "conversionRate": "13.31"
+    },
+    {
+        "id": 5,
+        "image": "apps/opera.svg",
+        "browserName": "Opera",
+        "sessions": "235",
+        "bounceRate": "42.35",
+        "conversionRate": "2.35"
+    },
+    {
+        "id": 6,
+        "image": "apps/uc-browser.svg",
+        "browserName": "UC Browser",
+        "sessions": "132",
+        "bounceRate": "42.35",
+        "conversionRate": "12.21"
+    }
+]
